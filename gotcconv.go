@@ -127,7 +127,7 @@ func Vet(inFilePath string) {
 	for scanner.Scan() {
 		origLine := scanner.Text()
 		line := origLine
-		if strings.Index(line, "exit status") != -1 {
+		if strings.HasPrefix(line, "exit status") {
 			continue
 		}
 		index := strings.Index(line, ": ")
