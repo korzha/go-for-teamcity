@@ -9,7 +9,7 @@ go get github.com/kisielk/errcheck
 #test -z "$(goimports -l -w . | tee /dev/stderr)"
 #test -z "$(golint .          | tee /dev/stderr)"
 
-go vet ./... 2>&1 | tee /home/lazada/go/src/lazada_api/govet.out 
+go vet ./... > /home/lazada/go/src/lazada_api/govet.out 2>&1
 go-for-teamcity -vet=/home/lazada/go/src/lazada_api/govet.out > /home/lazada/go/src/lazada_api/govet.xml
 errcheck ./... > /home/lazada/go/src/lazada_api/errcheck.out
 go-for-teamcity -errcheck=/home/lazada/go/src/lazada_api/errcheck.out > /home/lazada/go/src/lazada_api/errcheck.xml
